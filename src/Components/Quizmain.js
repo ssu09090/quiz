@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import quizData from "../Data/quizData";
 import Result from "./Result";
 
@@ -13,12 +13,15 @@ const Quizmain = ({ category, onReset }) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(null);
 
   const currentQuiz = selectedQuizzes[currentIndex];
 
   const handleChoice = (index) => {
     setSelected(index);
     setShowAnswer(true);
+    const correct = index === currentQuiz.answerIndex;
+    setIsCorrect(correct);
     if (index === currentQuiz.answerIndex) {
       setScore(score + 20);
     }
@@ -58,9 +61,11 @@ const Quizmain = ({ category, onReset }) => {
       </div>
       {showAnswer && (
         <div className="explanation">
+          <p className="check-message">
+            {isCorrect ? "⭕ 정답입니다 ⭕" : "❌ 오답입니다 ❌"}
+          </p>
           <p>정답: {currentQuiz.answer}</p>
           {currentQuiz.explanation && <p>해설: {currentQuiz.explanation}</p>}
-
           {currentIndex === selectedQuizzes.length - 1 ? (
             <button onClick={handleFinish}>결과 보기</button>
           ) : (

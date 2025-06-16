@@ -62,7 +62,7 @@ button {
   position: absolute;
   right: 50%;
   transform: translate(50%);
-  bottom: 10rem;
+  bottom: 9rem;
   padding: 1rem 2rem;
   font-size: 1.5rem;
   font-weight: bold;
@@ -81,7 +81,7 @@ button {
   gap: 7rem;
   h1 {
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 800;
     padding-top: 5rem;
   }
   .category-wrap {
@@ -111,7 +111,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
   margin-top: 2rem;
   .progress {
     font-size: 1rem;
@@ -168,17 +168,22 @@ button {
     color: $text-color;
     font-size: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
     p {
       margin: 1rem;
-      line-height: 1.7;
+      line-height: 1.5;
       word-break: keep-all;
       white-space: normal;
     }
+    .check-message {
+      font-weight: bolder;
+      font-size: 1.2rem;
+    }
     button {
       padding: 1rem 2rem;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: bolder;
       border-radius: 1rem;
       border: none;
       background-color: $text-color;

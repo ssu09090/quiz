@@ -49,7 +49,7 @@ const quizData = {
     {
       id: 5,
       category: "맞춤법",
-      question: "'끔찍이'와 '끔찍히'어떤 것이 맞는 말?",
+      question: "'끔찍이'와 '끔찍히' 어떤 것이 맞는 말?",
       choices: ["나를 끔찍이 귀여워하셨다.", "나를 끔찍히 귀여워하셨다."],
       answerIndex: 0,
       answer: "나를 끔찍이 귀여워하셨다.",
