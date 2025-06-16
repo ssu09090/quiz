@@ -8,8 +8,13 @@ import Quizmain from "./Components/Quizmain";
 const App = () => {
   const [started, setStarted] = useState(false);
   const [category, setCategory] = useState(null);
-  const handleCategory = (obj) => {
-    setCategory(obj);
+  const handleCategory = (selectedCategory) => {
+    setCategory(selectedCategory);
+  };
+
+  const handleReset = () => {
+    setStarted(false);
+    setCategory(null);
   };
 
   if (!started) {
@@ -34,9 +39,8 @@ const App = () => {
             onSelected={handleCategory}
           />
         ) : (
-          <Quizmain category={category} />
+          <Quizmain category={category} onReset={handleReset} />
         )}
-        <Result />
       </div>
     </div>
   );
