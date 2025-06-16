@@ -21,10 +21,11 @@ body {
   height: 100vh;
 }
 
-button{
-  color:$text-color
+button {
+  color: $text-color;
 }
 
+//시작화면
 .app-container {
   width: 420px;
   height: 850px;
@@ -35,17 +36,15 @@ button{
   overflow: hidden;
   display: flex;
 }
-
 .quiz-box {
   width: 100%;
   padding: 2rem;
   text-align: center;
   position: relative;
 }
-
 .title {
   position: absolute;
-  top: 2rem;
+  top: 3rem;
   left: 2rem;
   padding: 1rem;
   letter-spacing: 1rem;
@@ -56,9 +55,9 @@ button{
   background-color: $button-default;
   color: $text-color;
 }
-
 .start-btn {
-  background-color: $button-default;
+  background-color: $button-active;
+  color: $sub-color;
   border: none;
   position: absolute;
   right: 50%;
@@ -71,15 +70,15 @@ button{
   cursor: pointer;
   transition: 0.3s;
   &:hover {
-    background-color: $button-active;
-    color: $sub-color;
+    background-color: darken($button-active, 5%);
   }
 }
 
+//카테고리 선택 화면
 .category {
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  gap: 7rem;
   h1 {
     font-size: 2.5rem;
     font-weight: 900;
@@ -94,7 +93,7 @@ button{
     button {
       padding: 4rem 2rem;
       font-size: 1.5rem;
-      font-weight: bold;
+      font-weight: bolder;
       border: none;
       border-radius: 1rem;
       cursor: pointer;
@@ -107,24 +106,132 @@ button{
   }
 }
 
-// ?
-.choice-btn {
-  background-color: $button-default;
-  color: $text-color;
-  border: none;
-  padding: 0.8rem 1.2rem;
-  margin: 0.5rem 0;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 6px;
-  transition: background-color 0.3s;
-
-  &.selected {
-    background-color: $button-active;
-    color: white;
+//퀴즈 메인
+.quiz-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  .progress {
+    font-size: 1rem;
+    color: $text-color;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
   }
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    background-color: $button-default;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 300px;
+    word-break: keep-all;
+    white-space: normal;
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    button {
+      word-break: keep-all;
+      white-space: normal;
+      background-color: $button-default;
+      width: 155px;
+      padding: 1.2rem;
+      font-size: 1.1rem;
+      border-radius: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background-color: $button-active;
+        color: $sub-color;
+      }
+      &.selected {
+        background-color: $button-active;
+        color: $sub-color;
+      }
+      &:disabled {
+        opacity: 0.8;
+        cursor: default;
+      }
+    }
+  }
+  //정답 및 해석
+  .explanation {
+    width: 300px;
+    background-color: $button-default;
+    border-radius: 1rem;
+    padding: 1rem;
+    color: $text-color;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    p {
+      margin: 1rem;
+      line-height: 1.7;
+      word-break: keep-all;
+      white-space: normal;
+    }
+    button {
+      padding: 1rem 2rem;
+      margin: 1rem 0;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 1rem;
+      border: none;
+      background-color: $text-color;
+      color: $sub-color;
+      cursor: pointer;
+    }
+  }
+}
 
-  &:hover:not(.selected) {
-    background-color: darken($button-default, 5%);
+//결과
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  .result-box {
+    text-align: center;
+    padding: 2rem;
+    background-color: $button-default;
+    border-radius: 1.5rem;
+    color: $text-color;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      word-break: keep-all;
+      white-space: normal;
+    }
+
+    p {
+      word-break: keep-all;
+      white-space: normal;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: white;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 2rem 0;
+    }
+
+    button {
+      font-size: 1.1rem;
+      padding: 1rem 2rem;
+      background-color: $button-active;
+      color: $sub-color;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background-color: darken($button-active, 5%);
+      }
+    }
   }
 }

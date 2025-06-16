@@ -10,9 +10,11 @@ const Result = ({ score, onReset }) => {
 
   return (
     <div className="result">
-      <h2>당신의 점수는 {score}점입니다!</h2>
-      <p>{getMessage()}</p>
-      <button onClick={onReset}>처음으로 돌아가기</button>
+      <div className="result-box">
+        <h2>당신의 점수는 {score}점입니다!</h2>
+        <p>{getMessage()}</p>
+        <button onClick={onReset}>처음으로 돌아가기</button>
+      </div>
     </div>
   );
 };

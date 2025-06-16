@@ -40,19 +40,22 @@ const Quizmain = ({ category, onReset }) => {
 
   return (
     <div className="quiz-main">
+      <div className="progress">
+        {currentIndex + 1} / {selectedQuizzes.length}
+      </div>
       <h2>{currentQuiz.question}</h2>
-
-      {currentQuiz.choices.map((choice, idx) => (
-        <button
-          key={idx}
-          onClick={() => handleChoice(idx)}
-          disabled={showAnswer}
-          className={selected === idx ? "selected" : ""}
-        >
-          {choice}
-        </button>
-      ))}
-
+      <div className="choices">
+        {currentQuiz.choices.map((choice, idx) => (
+          <button
+            key={idx}
+            onClick={() => handleChoice(idx)}
+            disabled={showAnswer}
+            className={selected === idx ? "selected" : ""}
+          >
+            {choice}
+          </button>
+        ))}
+      </div>
       {showAnswer && (
         <div className="explanation">
           <p>정답: {currentQuiz.answer}</p>
